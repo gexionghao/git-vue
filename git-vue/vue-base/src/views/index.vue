@@ -98,14 +98,31 @@
       <el-main>
           <!-- <myCalendar></myCalendar> -->
 
-        <el-tabs ref="tabPane" v-model="editableTabsValue" type="card"  @tab-remove="removeTab">
+        <el-tabs ref="tabPane" id="tabPane" v-model="editableTabsValue" type="card"  @tab-remove="removeTab">
           <el-tab-pane  v-for="item in editableTabs" :key="item.id" :label="item.title"  :name="item.indexTable"  :closable="item.close">
-
+            <!-- 首页 -->
             <home  v-if="tabs.homeShow===item.lable" :mainHeight="tabPaneHeight"></home>
 
+            <!-- 活动列表 -->
             <activityList  v-if="tabs.activityListShow===item.lable"  @addTab="addTab" :mainHeight="tabPaneHeight" ></activityList>
 
+            <!-- 活动详情-->
             <activityDetails v-if="tabs.activitySeeShow===item.lable"  :mainHeight="tabPaneHeight"></activityDetails>
+
+            <!--签到管理-->
+            <signManagement v-if="tabs.signManagementShow===item.lable" :mainHeight="tabPaneHeight"> </signManagement>
+
+            <!--投票管理-->
+            <votMana v-if="tabs.votingManagementShow===item.lable" :mainHeight="tabPaneHeight" ></votMana>
+
+            <!--预约管理-->
+            <appoint v-if="tabs.appotinManagementShow===item.lable" :mainHeight="tabPaneHeight" @addTab="addTab"></appoint>
+
+            <!--添加预约活动-->
+            <appointDetail v-if="tabs.appointDetailShow===item.lable" :mainHeight="tabPaneHeight" ></appointDetail>
+
+            <!--数据统计-->
+            <statistical v-if="tabs.statisticalShow===item.lable" :mainHeight="tabPaneHeight"> </statistical>
 
             <userList v-if="tabs.userListShow===item.lable"></userList>
 
@@ -128,6 +145,12 @@
  import notityList from "../components/notify/notifyList"
  import activityList from "../components/activity/activityList"
  import activityDetails from "../components/activity/activityDetails"
+ import signManagement from "../components/activity/signManagement"
+ import votMana from "../components/activity/votingManagement"
+ import appoint from "../components/activity/appotinManagement"
+ import appointDetail from "../components/activity/appotinDetails"
+ import statistical from "../components/statistical/statistical"
+
 
 export default {
      components: {
@@ -137,7 +160,12 @@ export default {
         spaceList,
         notityList,
         activityList,
-        activityDetails
+        activityDetails,
+        signManagement,
+        votMana,
+        appoint,
+        appointDetail,
+        statistical
      },
   data() {
     return {
@@ -153,7 +181,12 @@ export default {
         spaceListShow: "space",
         notityListShow: "tongzhi",
         activityListShow: "activityList",
-        activitySeeShow: "activitySee"
+        activitySeeShow: "activitySee",
+        signManagementShow:"sign",
+        votingManagementShow:"toupiao",
+        appotinManagementShow:"yuyue",
+        appointDetailShow:"appointShow",
+        statisticalShow:"yunying"
       },
       editableTabsValue: "1",
       editableTabs: [

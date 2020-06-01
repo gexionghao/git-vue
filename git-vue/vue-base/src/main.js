@@ -8,7 +8,10 @@ import "./assets/css/globel.css";
 import "./views/index.vue";
 import axios from "axios";
 import VueAxios from "vue-axios";
+import echarts from "echarts"
 
+
+Vue.prototype.$echarts = echarts;
 Vue.config.productionTip = false;
 Vue.use(VueAxios, axios);
 

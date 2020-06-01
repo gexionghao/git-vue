@@ -24,9 +24,19 @@ import {
   Table,
   TableColumn,
   PageHeader,
-  Pagination
-} from "element-ui";
+  Pagination,
+  Dialog,
+  Col,
+  DatePicker,
+  TimePicker,
+  Select,
+  Option
 
+} from "element-ui";
+Vue.use(Option)
+Vue.use(Select)
+Vue.use(TimePicker)
+Vue.use(DatePicker)
 Vue.use(Button);
 Vue.use(Form);
 Vue.use(FormItem);
@@ -51,5 +61,7 @@ Vue.use(Table);
 Vue.use(TableColumn);
 Vue.use(PageHeader);
 Vue.use(Pagination);
+Vue.use(Dialog);
+Vue.use(Col)
 // Vue.use(Message)
 Vue.prototype.$message = Message;
