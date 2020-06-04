@@ -13,6 +13,27 @@
       "unicode_decimal": 59551
     },
     {
+      "icon_id": "271080",
+      "name": "location",
+      "font_class": "location",
+      "unicode": "e6b4",
+      "unicode_decimal": 59060
+    },
+    {
+      "icon_id": "637610",
+      "name": "LC_icon_user_group_line",
+      "font_class": "LC_icon_user_group_line",
+      "unicode": "e616",
+      "unicode_decimal": 58902
+    },
+    {
+      "icon_id": "1294842",
+      "name": "time",
+      "font_class": "time",
+      "unicode": "e637",
+      "unicode_decimal": 58935
+    },
+    {
       "icon_id": "3965525",
       "name": "Microsoft-Excel",
       "font_class": "Microsoft-Excel",
@@ -41,11 +62,25 @@
       "unicode_decimal": 58629
     },
     {
+      "icon_id": "7712761",
+      "name": "word",
+      "font_class": "word",
+      "unicode": "e742",
+      "unicode_decimal": 59202
+    },
+    {
       "icon_id": "11982652",
       "name": "Cloud, download, storage",
       "font_class": "Clouddownloadstorage",
       "unicode": "e9cd",
       "unicode_decimal": 59853
+    },
+    {
+      "icon_id": "14929646",
+      "name": "组织Data Organization (9)",
+      "font_class": "zuzhiDataOrganization9",
+      "unicode": "e672",
+      "unicode_decimal": 58994
     }
   ]
 }

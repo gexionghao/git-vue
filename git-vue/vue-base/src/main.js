@@ -8,12 +8,15 @@ import "./assets/css/globel.css";
 import "./views/index.vue";
 import axios from "axios";
 import VueAxios from "vue-axios";
-import echarts from "echarts"
+import echarts from "echarts";
+
+
 
 
 Vue.prototype.$echarts = echarts;
 Vue.config.productionTip = false;
 Vue.use(VueAxios, axios);
+
 
 // 配置请求的根路径
 axios.defaults.baseURL = "http://127.0.0.1:6001/client/";
@@ -22,7 +25,7 @@ axios.defaults.baseURL = "http://127.0.0.1:6001/client/";
 // axios.defaults.baseURL = 'http://127.0.0.1:6001/client/'
 axios.interceptors.request.use(config => {
   config.headers.Authorization = window.sessionStorage.getItem("token");
-  console.log("123");
+  
   return config;
 });
 

@@ -144,17 +144,17 @@ export default {
       total: 0,
       currentPage: 0,
       labelPosition:"left",
-        ruleForm: {
-          title:'空间管理云平台系统研发技术问题协调会',
-          creator:'李丽丽',
-          number:'25人',
-          activeTime:'2020-03-04  9:00-11:30(150分钟)',
-          popleArr:'张明明、李明明、刘德华、张柏芝、谢霆锋、王菲、李亚鹏、陈冠希',
-          baseSele:'综合空间1',
-          tixing:'提前30分钟',
-          signTime:'活动开始后15分钟',
-          zbTime:'15分钟'
-        }
+      ruleForm: {
+        title:'空间管理云平台系统研发技术问题协调会',
+        creator:'李丽丽',
+        number:'25人',
+        activeTime:'2020-03-04  9:00-11:30(150分钟)',
+        popleArr:'张明明、李明明、刘德华、张柏芝、谢霆锋、王菲、李亚鹏、陈冠希',
+        baseSele:'综合空间1',
+        tixing:'提前30分钟',
+        signTime:'活动开始后15分钟',
+        zbTime:'15分钟'
+      }
     }
   },
   created() {

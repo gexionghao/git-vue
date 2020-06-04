@@ -5,9 +5,9 @@
         <div class="top-black" :key="item.id">
           <div class="top-black-up">
             <div style="width: 40%;float: left;height: 100%;">图片</div>
-            <div style="position: relative;float: left; width: 60%;b height: 100%; color: blue;">
-              <span style="position: relative;top: 20%;font-size: 40px;">{{item.count}}</span>
-              <span style="position: relative;left: 40%;">场</span>
+            <div style="position: relative;float: left; width: 60%;b height: 100%; color: blue;height: 100%;">
+              <span style="position: relative;top: 30%;font-size: 40px;">{{item.count}}</span>
+              <span style="position: relative;left: 40%;top: 20%;">场</span>
             </div>
           </div>
           <div class="top-black-down">
@@ -113,7 +113,7 @@ export default {
     getNowTodo() {
       const that = this
       this.axios.get('testApi/getNowTodo').then(function(res) {
-        console.info(res)
+        
         if (res.data.code === 200) {
            that.newTodo = res.data.data
         }

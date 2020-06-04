@@ -57,7 +57,7 @@
           </div>
           
       </div>
-      <el-table :data="gridData">
+      <el-table :data="gridData" style="height: 80%;">
         <el-table-column type="selection" width="25"></el-table-column>
         <el-table-column prop="id"  label="序号"  width="50" align="center" > </el-table-column>
         <el-table-column property="date" label="部门" align="center"></el-table-column>

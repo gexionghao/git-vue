@@ -95,10 +95,10 @@
 
       </el-header>
       <!-- main-->
-      <el-main>
+      <el-main ref="tabPane">
           <!-- <myCalendar></myCalendar> -->
 
-        <el-tabs ref="tabPane" id="tabPane" v-model="editableTabsValue" type="card"  @tab-remove="removeTab">
+        <el-tabs  id="tabPane" v-model="editableTabsValue" type="card"  @tab-remove="removeTab">
           <el-tab-pane  v-for="item in editableTabs" :key="item.id" :label="item.title"  :name="item.indexTable"  :closable="item.close">
             <!-- 首页 -->
             <home  v-if="tabs.homeShow===item.lable" :mainHeight="tabPaneHeight"></home>
@@ -121,14 +121,31 @@
             <!--添加预约活动-->
             <appointDetail v-if="tabs.appointDetailShow===item.lable" :mainHeight="tabPaneHeight" ></appointDetail>
 
+            <!--设备管理-->
+            <device v-if="tabs.deviceShow===item.lable" :mainHeight="tabPaneHeight"></device>
+
+            <!--审核管理-->
+            <audit v-if="tabs.auditShow===item.lable" :mainHeight="tabPaneHeight"></audit>
+            
+            <!--文档管理-->
+            <doc v-if="tabs.docShow===item.lable" :mainHeight="tabPaneHeight" ></doc>
+
+            <!--用户管理-->
+            <userList v-if="tabs.userListShow===item.lable" :mainHeight="tabPaneHeight"></userList>
+
+            <!--通知管理-->
+            <notityList v-if="tabs.notityListShow===item.lable" :mainHeight="tabPaneHeight"></notityList>
+
             <!--数据统计-->
             <statistical v-if="tabs.statisticalShow===item.lable" :mainHeight="tabPaneHeight"> </statistical>
 
-            <userList v-if="tabs.userListShow===item.lable"></userList>
+
+
+            
 
             <spaceList v-if="tabs.spaceListShow===item.lable"></spaceList>
 
-            <notityList v-if="tabs.notityListShow===item.lable"></notityList>
+            
 
           </el-tab-pane>
         </el-tabs>
@@ -150,7 +167,9 @@
  import appoint from "../components/activity/appotinManagement"
  import appointDetail from "../components/activity/appotinDetails"
  import statistical from "../components/statistical/statistical"
-
+ import doc from "../components/doc/docment"
+ import audit from "../components/space/audit"
+ import device from "../components/space/device"
 
 export default {
      components: {
@@ -165,7 +184,10 @@ export default {
         votMana,
         appoint,
         appointDetail,
-        statistical
+        statistical,
+        doc,
+        audit,
+        device
      },
   data() {
     return {
@@ -186,7 +208,10 @@ export default {
         votingManagementShow:"toupiao",
         appotinManagementShow:"yuyue",
         appointDetailShow:"appointShow",
-        statisticalShow:"yunying"
+        statisticalShow:"yunying",
+        docShow:"wendang",
+        auditShow:"shenhe",
+        deviceShow:"device"
       },
       editableTabsValue: "1",
       editableTabs: [
@@ -210,9 +235,10 @@ export default {
   mounted() {
     const that = this
     const tabPa = this.$refs.tabPane
-    this.tabPaneHeight = tabPa.$el.offsetHeight
+    this.tabPaneHeight = tabPa.$el.offsetHeight*0.95
      window.onresize = function() {
-       that.tabPaneHeight = tabPa.$el.offsetHeight
+       that.tabPaneHeight = tabPa.$el.offsetHeight*0.95
+       
      }
   },
   methods: {
@@ -221,12 +247,12 @@ export default {
       this.$router.push("/login");
     },
     async getMenuList() {
-      console.log("11");
+     
       const that = this;
       this.axios.get("testApi/getMenuList").then(res => {
-        console.log("222");
+    
         if (res.data.code === 200) {
-          console.log("333");
+          
           that.menulist = res.data.data;
         }
       });
@@ -248,10 +274,10 @@ export default {
       })
     },
     addTab(item) {
-      console.info(item)
+      
       let ishave = false
       const tables = this.editableTabs
-      console.info(tables)
+      
       let newTableIndex
       tables.forEach(function(table) {
         if (table.id === item.id) {
@@ -277,10 +303,10 @@ export default {
       this.isCollapse = !this.isCollapse;
     },
     removeTab(targetName) {
-      console.log(targetName)
+      
       const tabs = this.editableTabs
       let activeName = this.editableTabsValue
-        console.log(activeName)
+      
       if (activeName === targetName) {
         tabs.forEach((tab, index) => {
           if (tab.indexTable === targetName) {

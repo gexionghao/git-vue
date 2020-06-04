@@ -16,7 +16,7 @@
         <el-table-column  prop="address"  label="地点"  align="center" ></el-table-column>
         <el-table-column  prop="creator"  label="创建人"   align="center" ></el-table-column>
         <el-table-column  prop="createTime"  label="创建时间"  sortable align="center" ></el-table-column>
-        <el-table-column  prop="state"  label="状态"   align="center" :formatter=stateFormatter>
+        <el-table-column  prop="state"  label="状态"   align="center" >
             <template slot-scope="scope">
               <span v-if="scope.row.state==='待审核'" style="color:darkgray">{{scope.row.state}}</span>
               <span v-else-if="scope.row.state==='已预约'" style="color:blue">{{scope.row.state}}</span>
@@ -125,10 +125,6 @@ export default {
     },
     nextClick(index) {
        this.handleCurrentChange(index)
-    },
-    stateFormatter(row, cloum) {
-      console.log(row)
-      console.log(cloum)
     },
     editRow(row) {
       console.log(row)
